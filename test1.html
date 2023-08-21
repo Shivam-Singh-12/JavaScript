@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>DOM Element and Css</h2>
+    <p id="jstitle">JavaScript</p>
+
+    <b>Find HTML using tag name</b>
+    <p id="jstext"><i>JavaScript is <b>Very</b> easy <b>to learn</b></i></p>
+    <i class="jsdescription">JavaScript is a programming language</i>
+    <h2 id="jsstyled" style="color: yellow;">JavaScript</h2>
+    <button type="button" onclick="document.getElementById('jsstyled').style.color = 'green'">Click Me !!</button>
+</body>
+
+</html>
+
+<script>
+    var language = document.getElementById('jstitle');
+    console.log("The Content of js title : ", language.innerHTML);
+    var newlanguage = language.innerHTML = "Hello Shiva"
+    console.log("newlanguage : ", newlanguage);
+
+    var bTag = document.getElementsByTagName('b');
+    console.log("b Tag name : ", bTag);
+    console.log("b Tag name : ", bTag[0].innerHTML);
+
+    var pTags = document.getElementsByTagName('p');
+    console.log("p Tag name : ", pTags.length);
+
+    var jsText = document.getElementById('jstext');
+    var jsTextbTag = jsText.getElementsByTagName('b');
+    console.log("jsTextbTag : ", jsTextbTag);
+
+    var jsdes = document.getElementsByClassName('jsdescription');
+    console.log('jsdescription : ', jsdes[0].innerHTML);
+
+    var select = document.querySelectorAll('i.jsdescription');
+    console.log("CSS selector i.jsdescription : ", select[0].innerHTML);
+</script>
+<br><br>
+
+<!-- Next -->
+<b id="toremove">Manipulating the DOM</b>
+
+<ul id="unOrder">
+    <li>Python</li>
+</ul>
+
+<script>
+    var unorderedList = document.getElementById('unOrder');
+    var listItem1 = document.getElementById('li');
+
+    console.log("Create new elements");
+    console.log("The first li element : ", listItem1);
+    // listItem1.textContent = "JavaScript"
+    console.log("The first li element with textContent : ", listItem1);
+
+    var listItem2 = document.createElement('li');
+    var text2 = document.createTextNode('Java');
+    listItem2.appendChild(text2);
+    console.log("The second li element : ", listItem2);
+
+    unorderedList.prepend(listItem1);
+    unorderedList.prepend(listItem2);
+
+    var h4 = document.createElement('h3');
+    h4.textContent = "This is the new line added";
+    document.body.insertBefore(h4, unorderedList);
+    h4.style.backgroundColor = 'cyan';
+
+    let toremove = document.getElementById('toremove');
+    // toremove.remove();
+    var listItem = unorderedList.firstElementChild;
+    // unorderedList.removeChild(listItem);
+
+    var listItem3 = document.createElement('li');
+    listItem3.textContent = 'GO';
+    unorderedList.replaceChild(listItem3, listItem2);
+</script>

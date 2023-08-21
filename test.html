@@ -1,0 +1,86 @@
+<p>Please Enter Number</p>
+<input type="text" id="num">
+<button type="button" onclick="isEven()">Click</button>
+
+<script>
+    function isEven(){
+    let a;
+    a = document.getElementById("num").value;
+    try{
+        if((a % 2) == 0){
+            console.log("Even Number");
+        } else{
+            console.log("Odd number");
+        }
+    } catch{
+        console.log("Error : " + msg);
+    }
+}
+</script>
+
+<h2>Closures With Button</h2>
+<div>
+    <button id="incButton">Increament</button>
+    <button id="decButton">decreament</button>
+    <button id="statusButton">Status</button>
+</div>
+<div id="incCount"></div>
+<div id="decCount"></div>
+
+<script>
+    window.onload = function(){
+        var incButton = document.getElementById('incButton');
+        var incCount = 0;
+        incButton.onclick = function(){
+            incCount++;
+            var incCountMessage = document.getElementById('incCount');
+            incCountMessage.innerHTML = "increment counter = " + incCount
+        }
+        var decButton = document.getElementById('decButton');
+        var decCount = 5;
+        decButton.onclick = function(){
+            decCount--;
+            var decCountMessage = document.getElementById('decCount');
+            decCountMessage.innerHTML = "increment counter = " + decCount
+        } 
+    }
+    var incDecValue = function (){
+        alert("incDecValue ! incremented value count =" + incCount + "Decremented value count = "+ decCount);
+    }
+    statusButton.addEventListener('click', incDecValue);
+    console.log('statusButton : ', incDecValue);
+</script>
+<!-- ............................................................................. -->
+<script>
+    window.onload = function(){
+        var incButton = document.getElementById('incButton');
+        let incCount = 0;
+        incButton.onclick = function(){
+            var afterincrement = document.getElementById('incCount');
+            afterincrement.innerHTML = "increment counter = " + incCount
+            incCount++;
+        }
+        var decButton = document.getElementById('decButton');
+        let decCount = 10;
+        function decfunctionCount(){
+            var afterdecrement = document.getElementById('decCount');
+            afterdecrement.innerHTML = "increment counter = " + decCount
+            decCount--;
+        } 
+        decButton.onclick = decfunctionCount;
+    }
+</script>
+<br>
+<!-- .............................................................................. -->
+
+<button id="time">Click me to get current Date !!</button>
+<h2 id="currentTime"></h2>
+<script>
+    window.onload = function () {
+        time.onclick = displayDate;
+    }
+    function displayDate() {
+        currentTime.innerHTML = Date();
+    }
+
+</script>
